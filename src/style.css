@@ -1,0 +1,316 @@
+/* General styles */ 
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Title Bar */
+.title-bar {
+  background-color: rgba(8, 8, 8, 0.8);
+  color: rgb(240, 96, 6);
+  padding: 1.5rem;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.title-bar .text-head {
+  font-size: 2.5rem;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+  margin: 0;
+}
+
+/* Background image for carousel */
+.carousel {
+  background: url('img1.jpg') no-repeat center center/cover;
+  height: 300px;
+  
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  color: white;
+  text-align: left;
+  padding: 2rem;
+  position: relative;
+}
+
+@keyframes colorChange {
+  0% {
+    color: #ff6f61;
+  }
+  25% {
+    color: #ffcc00;
+  }
+  50% {
+    color: #4caf50;
+  }
+  75% {
+    color: #2196f3;
+  }
+  100% {
+    color: #ff6f61;
+  }
+}
+
+@keyframes textBounce {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+}
+
+.carousel div {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3rem;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  animation: colorChange 3s infinite, textBounce 1.5s infinite;
+}
+
+.carousel p {
+  margin-top: 0.7rem;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
+
+
+.carousel::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.carousel div {
+  z-index: 2;
+  font-size: 1.5rem;
+  max-width: 600px;
+  text-shadow: 1px 1px 4px rgba(70, 233, 140, 0.8);
+}
+
+.carousel p {
+  font-size: 1rem;
+  margin-top: 1rem;
+  color: #f0f0f0;
+}
+
+/* Main Section */
+main {
+  padding: 2rem 1rem;
+  text-align: center;
+  background-color: #ffffff;
+}
+
+textarea#ingredients-input {
+  width: 80%;
+  height: 4rem;
+  padding: 1rem;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  font-family: "Poppins", sans-serif;
+  background-color: #f8f8f8;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+textarea#ingredients-input:focus {
+  border-color: #e75318;
+  background-color: #fff;
+  box-shadow: 0 0 5px rgba(203, 218, 7, 0.5);
+}
+
+/* Button Styles */
+.btn-container {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+button {
+  
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  border-radius: 50px;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s ease;
+  font-weight: bold;
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+.btn-primary {
+  background-color: #0c4dbc;
+  color: white;
+  box-shadow: 0 4px 6px rgba(13, 16, 13, 0.3);
+}
+
+.btn-primary:hover {
+  background-color: #14d140;
+  transform: translateY(-3px);
+}
+
+.btn-primary-1 {
+  background-color: #1020d4;
+  color: white;
+  box-shadow: 0 4px 6px rgba(3, 18, 1, 0.3);
+}
+
+.btn-primary-1:hover {
+  background-color: #09ef11;
+  transform: translateY(-3px);
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  color: white;
+  box-shadow: 0 4px 6px rgba(108, 117, 125, 0.3);
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268;
+  transform: translateY(-3px);
+}
+
+/* Recipe Container */
+#recipe-container {
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  margin: 2rem auto;
+  padding: 2rem;
+  max-width: 700px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+/* When visible */
+#recipe-container:not(.hidden) {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hidden {
+  display: none;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* Recipe Name */
+#recipe-container h1.text-head {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 1rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Recipe Content */
+#recipe-container .text-content {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #555;
+}
+
+/* Sections (Ingredients, Instructions, Notes) */
+#recipe-container h2 {
+  font-size: 1.5rem;
+  color: #ff6f61;
+  border-bottom: 2px solid #ff6f61;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+#recipe-container ul.section {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+#recipe-container ul.section li {
+  margin: 0.5rem 0;
+}
+
+#recipe-container p.section {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  #recipe-container {
+    padding: 1.5rem;
+    max-width: 90%;
+  }
+
+  #recipe-container h1.text-head {
+    font-size: 1.8rem;
+  }
+
+  #recipe-container h2 {
+    font-size: 1.3rem;
+  }
+
+  #recipe-container ul.section li {
+    font-size: 0.9rem;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+/* Footer */
+.footer {
+  background-color: #343a40;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  margin-top: auto;
+}
+
+.footer p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  textarea#ingredients-input {
+    width: 90%;
+  }
+
+  .carousel {
+    height: 250px;
+  }
+
+  .carousel div {
+    font-size: 1.2rem;
+  }
+}
